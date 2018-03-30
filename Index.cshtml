@@ -1,0 +1,154 @@
+﻿@using nastart.Models
+@model IEnumerable<nastart.Models.ImageIcon>
+@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<div class="container">
+    <div class="jumbotron" style="border:1px #000000;box-shadow: 0px 2px 5px #000000">
+        <div>
+            <h2>Co to jest backend i frontend?</h2>
+            <blockquote class="blockquote-reverse">
+                <p style="text-align:right; color:dimgrey">-Nie mylić z bekhend i forhend- to nie tenis! </p>
+            </blockquote>
+
+        </div>
+
+    </div>
+    <div class="col-sm-6">
+        <div class="jumbotron" style="border:1px #000000;box-shadow: 0px 2px 5px #000000">
+
+            <blockquote>
+                <h2 style="text-align:center">Backend</h2>
+                <h3>
+                    Wyobraź sobie, że w okolicy wybudowano nowe osiedle. W ofercie są mieszkania w stanie deweloperskim. Deweloper postawił fundamenty i piętra, zapewnił szczelne okna, dach nad głową, instalacje wodną i gazową, windę, schody oraz garaż podziemny – czyli wykonał pracę backendową.
+                </h3>
+   
+            </blockquote>
+
+            <button class="btn btn-primary btn-lg btn-primary">
+                WYBIERAM BACKEND
+                @Ajax.ActionLink(" ", "Back", new AjaxOptions()
+           {
+               HttpMethod = "GET",
+               UpdateTargetId = "Techno",
+               InsertionMode = InsertionMode.Replace
+           })
+            </button>
+        </div>
+
+    </div>
+    <div class="col-sm-6">
+        <div class="jumbotron" style="border:1px #000000;box-shadow: 0px 2px 5px #000000">
+            <h2 style="text-align:center">Frontend</h2>
+            <blockquote>
+                <h3>
+                    Do Ciebie, po kupnie mieszkania, będzie należała praca frontendowa, czyli malowanie, wykończenie wnętrza, dokupienie dekoracji. W skrócie, programista fronentedowy jest odpowiedzialny za wykończenie domu zbudowanego przez programistę backendowego.
+                </h3>
+
+            </blockquote>
+            <button class="btn btn-info btn-lg">
+              
+                @Ajax.ActionLink("WYBIERZ TECHNOLOGIE",
+                  "Front",
+                  null,
+            new AjaxOptions
+            {
+                HttpMethod = "GET",
+                UpdateTargetId = "Techno",
+                InsertionMode = InsertionMode.Replace
+
+            }, new { @style = "color:White" })
+            </button>
+        </div>
+    </div>
+</div>
+<div>
+@foreach (ImageIcon image in Model)
+{
+    <img src="@Url.Content(image.pic)" alt="Image" />
+}
+</div>
+
+<div id="Techno">
+
+</div>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+    @*<button class="btn btn-info center-block">
+        WYBIERAM FRONTEND
+        @Ajax.ActionLink(" ", "Front", new AjaxOptions()
+       {
+           HttpMethod = "GET",
+           UpdateTargetId = "Techno",
+           InsertionMode = InsertionMode.Replace
+       })
+    </button>
+    <div>
+        <text>  Wyobraź sobie, że w okolicy wybudowano nowe osiedle. W ofercie są mieszkania w stanie deweloperskim. Deweloper postawił fundamenty i piętra, zapewnił szczelne okna, dach nad głową, instalacje wodną i gazową, windę, schody oraz garaż podziemny – czyli wykonał pracę backendową. </text>
+    </div>
+    <div>
+        <text> Do Ciebie, po kupnie mieszkania, będzie należała praca frontendowa, czyli malowanie, wykończenie wnętrza, dokupienie dekoracji. W skrócie, programista fronentedowy jest odpowiedzialny za wykończenie domu zbudowanego przez programistę backendowego.</text>
+    </div>*@
+
+
+
+        @*<div>     BUTTON ACTION
+                <button type="button"onclick="location.href='@Url.Action("Front","Home")'">FRONTEND</button>
+                <button type="button" onclick="location.href='@Url.Action("Back","Home")'">BACKEND</button>
+            </div>*@
+        @*@using (Html.BeginForm("Submit", "Home"))
+        {*@
+            @*<div>
+                <p>
+                    Wybierz przedział wiekowy, w którym się znajdujesz:
+                    <br />
+                    @Html.DropDownListFor(model => model.wiek, new SelectList(Model.wiek, "Id", "Text"), "wybierz z listy")
+                </p>
+                <br />
+                <p>
+                    Czy dużą wagę przykładasz do detali?
+                    <br />
+                    @Html.DropDownListFor(model => model.details, new SelectList(Model.details, "Id", "Text"), "wybierz z listy")
+                </p>
+                <br />
+                <p>
+                    Dlaczego postanowiłeś zgłębić tajniki programowania:
+                    <br />
+                    @Html.DropDownListFor(model => model.why, new SelectList(Model.why, "Id", "Text"), "wybierz z listy")
+                </p>
+                <br />
+                <p>
+                    Jakie masz doświadczenie z programowaniem?
+                    <br />
+                    @Html.DropDownListFor(model => model.programmingexperience, new SelectList(Model.programmingexperience, "Id", "Text"), "wybierz z listy")
+                </p>
+                <br />
+                <p>
+                    Jakie rzeczy chciałbyś w przyszłości tworzyć?
+                    <br />
+                    @Html.DropDownListFor(model => model.future, new SelectList(Model.future, "Id", "Text"), "wybierz z listy")
+                </p>
+            </div>*@
+            @*<input type="submit" value="Sprawdź" />
+
+
+            <div id="Techno">*@
+
+            @*</div>*@
+            @*<div>
+               @Html.DropDownList("Data")
+                @Html.DropDownListFor(model => model.Id, new SelectList(Model.Text))
+            </div>*@
+            @*<div>
+                @Html.DropDownList("Data")
+                        @Html.DropDownListFor(model => model.wiek, new SelectList(Model.wiek, "Id","Text"),"wybierz z listy")
+                    @Html.DropDownListFor(model => model.details, new SelectList(Model.details, "Id", "Text"), "wybierz z listy")
+                    @Html.DropDownListFor(model => model.why, new SelectList(Model.why, "Id", "Text"), "wybierz z listy")
+                    @Html.DropDownListFor(model => model.programmingexperience, new SelectList(Model.programmingexperience, "Id", "Text"), "wybierz z listy")
+                    @Html.DropDownListFor(model => model.future, new SelectList(Model.future, "Id", "Text"), "wybierz z listy")
+            </div>*@
+
+    
